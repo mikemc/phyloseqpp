@@ -2,23 +2,29 @@
 % Please edit documentation in R/transform-filter.R
 \name{filter_taxa}
 \alias{filter_taxa}
+\alias{filter_taxa2}
 \title{Filter taxa based on across-sample OTU abundance criteria}
 \usage{
-filter_taxa(physeq, .f, prune = TRUE)
+filter_taxa(physeq, .f, prune = FALSE)
+
+filter_taxa2(physeq, .f)
 }
 \description{
-This is a wrapper around phyloseq::filter_taxa. It allows use of a
-purrr-style anonymous function for \code{.f}. It also sets prune = TRUE by
-default to be consistent with other subsetting functions and facilitate use
-in pipe chains.
+Wrappers around phyloseq::filter_taxa that allow using a purrr-style
+anonymous function for \code{.f}.
 }
+\section{Functions}{
+\itemize{
+\item \code{filter_taxa2}: Sets \code{prune = TRUE}
+}}
+
 \examples{
 library(phyloseq)
 library(tidyseq)
 data(GlobalPatterns)
 # Filter low prevalence taxa and then convert to proportions
 gp.prop <- GlobalPatterns \%>\%
-  filter_taxa(~ sum(. > 0) > 5) \%>\%
+  filter_taxa2(~ sum(. > 0) > 5) \%>\%
   transform_sample_counts(~ . / sum(.))
 }
 \seealso{

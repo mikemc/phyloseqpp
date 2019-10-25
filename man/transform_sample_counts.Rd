@@ -2,7 +2,7 @@
 % Please edit documentation in R/transform-filter.R
 \name{transform_sample_counts}
 \alias{transform_sample_counts}
-\title{Transform abundance data in an \code{otu_table}, sample-by-sample.}
+\title{Transform abundance data in an \code{otu_table}, sample-by-sample}
 \usage{
 transform_sample_counts(physeq, .f, ...)
 }
@@ -16,7 +16,7 @@ library(tidyseq)
 data(GlobalPatterns)
 # Filter low prevalence taxa and then convert to proportions
 gp.prop <- GlobalPatterns \%>\%
-  filter_taxa(~ sum(. > 0) > 5) \%>\%
+  filter_taxa2(~ sum(. > 0) > 5) \%>\%
   transform_sample_counts(~ . / sum(.))
 }
 \seealso{
