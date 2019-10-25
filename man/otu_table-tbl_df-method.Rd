@@ -8,6 +8,19 @@
 \S4method{otu_table}{tbl_df}(object, taxa_are_rows)
 }
 \description{
-Assumes that the first column is the OTU/taxon names or the sample names,
-depending on taxa_are_rows
+If taxa are rows, assumes that the first column is the OTU/taxon names. If
+taxa are columns, assumes that the first column is the sample names.
+}
+\seealso{
+phyloseq::otu_table
+
+\dontrun{
+# Read a .csv file with readr, which creates an object of class `tbl_df`
+tbl <- readr::read_csv("path/to/otu_table.csv")
+# Inspect and check if taxa are rows and that the first column contains the
+# sample names or the taxa/OTU names
+head(tbl) 
+# Create a phyloseq `otu_table` object
+otu <- otu_table(tbl, taxa_are_rows = FALSE)
+}
 }

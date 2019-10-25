@@ -8,10 +8,23 @@
 \S4method{tax_table}{tbl_df}(object)
 }
 \description{
-Assumes that the first column is the OTU/taxon names that will become
-\code{taxa_names(physeq)}.
+Assumes that the first column is the OTU/taxon names.
 }
 \details{
-Note: Unlike phyloseq's method for data.frames, this does not coerce the
-columns to character vectors; but will probably change this.
+This function creates a matrix from \code{object} that contains all columns
+except the first one, which is used for the row names. The resulting matrix
+is then passed to \code{tax_table()}.
+}
+\examples{
+\dontrun{
+# Read a .csv file with readr, which creates an object of class `tbl_df`
+tbl <- readr::read_csv("path/to/taxonomy_table.csv")
+# Inspect and check that the first column contains the taxa/OTU names
+head(tbl) 
+# Create a phyloseq `taxonomyTable` object
+tax <- tax_table(tbl)
+}
+}
+\seealso{
+phyloseq::tax_table
 }

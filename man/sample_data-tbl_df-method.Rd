@@ -8,10 +8,22 @@
 \S4method{sample_data}{tbl_df}(object)
 }
 \description{
-Assumes that the first column is the sample names that will become
-\code{sample_names(physeq)}
+Assumes that the first column is the sample names.
 }
 \details{
-Converts to a plain data.frame with row names = sample names and then passes
-to phyloseq's sample_data
+This function creates a plain \code{data.frame} from \code{object} that contains all
+columns except the first one, which is used for the row names. The resulting
+data frame is then passed to \code{sample_data()}.
+}
+\seealso{
+phyloseq::sample_data
+
+\dontrun{
+# Read a .csv file with readr, which creates an object of class `tbl_df`
+tbl <- readr::read_csv("path/to/sample_data.csv")
+# Inspect and check that the first column contains the sample names
+head(tbl) 
+# Create a phyloseq `sample_data` object
+sam <- sample_data(tbl)
+}
 }
