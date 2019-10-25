@@ -1,19 +1,22 @@
-Package: tidyseq
-Title: Utilities for tidy analysis of microbiome data
+Package: phyloseqpp
+Title: Phyloseq extensions and improvements
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Michael",
            family = "McLaren",
            role = c("aut", "cre"),
            email = "m.mclaren42@gmail.com")
-Description: Utilities for tidy analysis of microbiome data
-URL: https://github.com/mikemc/tidyseq
-BugReports: https://github.com/mikemc/tidyseq/issues
+Description: Phyloseq improvements and utilities for tidier analysis of microbiome data
+URL: https://github.com/mikemc/phyloseqpp
+BugReports: https://github.com/mikemc/phyloseqpp/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+Depends:
+    phyloseq,
+    speedyseq
 Imports: 
     magrittr,
     tidyverse,
