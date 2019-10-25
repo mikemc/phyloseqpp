@@ -48,6 +48,7 @@ filter_taxa <- function(physeq, .f, prune = FALSE){
     phyloseq::filter_taxa(physeq, fun, prune = prune)
 }
 
+#' @export
 #' @describeIn filter_taxa Sets `prune = TRUE`
 filter_taxa2 <- function(physeq, .f){
     fun <- purrr::as_mapper(.f)
